@@ -1,0 +1,91 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Grey/Silver Dark palette */
+  --bg0: #0d0e10;
+  --bg1: #111316;
+  --bg2: #161920;
+  --bg3: #1c2028;
+  --bg4: #232830;
+  --bg5: #2a3040;
+
+  --border:  rgba(160,170,200,0.08);
+  --border2: rgba(160,170,200,0.14);
+  --border3: rgba(160,170,200,0.22);
+
+  --text0: #e8eaf2;
+  --text1: #b0b8d0;
+  --text2: #7880a0;
+  --text3: #454d68;
+  --text4: #2e3450;
+
+  /* Silver accents */
+  --silver:    #a8b4c8;
+  --silver2:   #c8d4e8;
+  --silver3:   #8894ac;
+
+  /* Accent colors - muted/desaturated for silver combo */
+  --accent:    #6878b8;
+  --accent-lg: linear-gradient(135deg, #6878b8, #8890c8);
+  --accent2:   #8878a8;
+  --accent3:   #5898a8;
+  --accent4:   #a87858;
+  --accent5:   #8858a0;
+
+  --red:    #c86868;
+  --yellow: #c8a850;
+  --green:  #58a878;
+
+  --radius:    12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+
+  --shadow:    0 0 0 1px var(--border),  0 4px 24px rgba(0,0,0,0.5);
+  --shadow-lg: 0 0 0 1px var(--border2), 0 8px 48px rgba(0,0,0,0.7);
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  --font-body:    'Geist', 'Segoe UI', sans-serif;
+
+  --sidebar-w:     256px;
+  --rightpanel-w:  368px;
+  --topbar-h:      50px;
+}
+
+/* ── Global ── */
+html { height: 100%; }
+body {
+  background: var(--bg0);
+  color: var(--text0);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: auto;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100vh; display: flex; flex-direction: column; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border3); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* ── Animations ── */
+@keyframes fadeIn    { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn   { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+@keyframes pulse     { 0%,100% { opacity:1; } 50% { opacity:0.45; } }
+@keyframes spin      { to { transform: rotate(360deg); } }
+@keyframes blink     { 0%,100% { opacity:1; } 50% { opacity:0; } }
+@keyframes popIn     { 0% { transform: scale(0.92); opacity:0; } 100% { transform: scale(1); opacity:1; } }
+@keyframes shimmer   {
+  0%   { background-position: -400% 0; }
+  100% { background-position:  400% 0; }
+}
+
+/* ── Utility ── */
+.animate-fade  { animation: fadeIn  0.3s ease; }
+.animate-slide { animation: slideIn 0.25s ease; }
+.animate-pop   { animation: popIn   0.2s ease; }
